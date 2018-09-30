@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="interact.1.3.4.js"></script>
+    <script src="modernizr.js"></script>
+    <script src="underscore-min.js"></script>
+    <script src="index.js"></script>
+    <script src="mockupElements.js"></script>
+
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+
+    <div id="holder" style="width: 400px; height: 600px; background:#000000; float: left">
+
+        <div id="drag-1" class="draggable">
+            <img height="100%" width="100%" alt="ali">
+        </div>
+
+    </div>
+
+    <div id="controlPanel" style="float: left; padding: 25px">
+        <b>Artboard'u Düzenle</b> <br>
+        Ekran İsmi: <input type="text" id="screenName" value="sampleScreen"> <br>
+        Genişlik: <input type="text" id="width" value="400"> <br>
+        Yükseklik: <input type="text" id="height" placeholder="600" value="600"> <br>
+        Ekran Görüntüsü: <input type="file" id="screenImage"> <br>
+        <br>
+        <button onclick="updateScreen()">Ekranı Güncelle</button>
+        <br><br><br>
+
+        <b>Yeni Element Ekle</b> <br>
+        <input type="text" id="elementDesc" placeholder="Element Adını Gir"> <br>
+        <button onclick="addElement()">Ekle</button>
+
+        <br><br><br>
+
+        <b>Ekranı Aktar</b> <br>
+        <button onclick="viewCode()">Kod Bloğunu Görüntüle</button>
+        <br>
+        <button id="downloadLink">Mockup Sayfasını Dışa Aktar</button>
+        <br>
+        <textarea id="codeViewArea" cols="50" rows="20"></textarea>
+    </div>
+
+    <script>
+        var fileName = document.getElementById("screenName").value + ".html";
+        $('#downloadLink').click(function () {
+            exportHTML(fileName, "text/html");
+        });
+    </script>
+
+</body>
+
+</html>

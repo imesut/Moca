@@ -1,0 +1,22 @@
+.draggable {
+    width: 100px;
+    height: 100px;
+
+    background-color: #ffff;
+    opacity: .7;
+    color: #000000;
+    padding: 1px;
+
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+}
+
+/* #drag-me::before {
+            content: "#"attr(id);
+            font-weight: bold;
+        } */
+
+input, button{
+    height: 25px;
+    width: 250px;
+}
