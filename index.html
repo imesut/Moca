@@ -1,57 +1,227 @@
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-
+    <meta name="viewport" content="width=device-width" initial-scale=1">
+    <link href="vendor/css/bootstrap.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="interact.1.3.4.js"></script>
-    <script src="modernizr.js"></script>
-    <script src="underscore-min.js"></script>
-    <script src="index.js"></script>
-    <script src="mockupElements.js"></script>
+    <script src="vendor/js/bootstrap.min.js"></script>
+    <script src="vendor/js/interact.1.3.4.js"></script>
+    <script src="vendor/js/modernizr.js"></script>
+    <script src="vendor/js/underscore-min.js"></script>
+    <script src="vendor/js/jquery.contextMenu.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/mockupElements.js"></script>
+    <script src="js/rightClickMenu.js"></script>
 
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="vendor/css/jquery.contextMenu.min.css">
 </head>
 
 <body>
 
-    <div id="holder" style="width: 400px; height: 600px; background:#000000; float: left">
-
-        <div id="drag-1" class="draggable" style="width: 10px; height:10px">
-            <img height="100%" width="100%" alt="Geri, Düğme">
+    <div class="container">
+        <div class="row">
+            <h1>Moca - Create Accessible Mockups</h1>
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Screen</h2>
+                <div id="holder" style="width: 400px; height: 500px; background:#000000;">
 
+                    <div id="drag-1" class="draggable" name="Geri" kind="button" style="width: 100px; height:100px;">
+                        <button style="width: 100%; height: 100%">Geri</button>
+                        <p class="overlay">1</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Settings</h2>
+                <div class="bs-example">
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-plus"></span>
+                                        1. Edit Artboard</a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Screen Name: <input type="text" id="screenName" class="form-control" value="sampleScreen">
+                                    <br>
+                                    Width: <input class="form-control" type="text" id="width" value="400"> <br>
+                                    Height: <input class="form-control" type="text" id="height" placeholder="600" value="600">
+                                    <br>
+                                    Screen Image: <input class="form-control" type="file" id="screenImage"> <br>
+                                    <br>
+                                    <button type="button" class="btn btn-default" onclick="updateScreen()">Update
+                                        Screen</button>
+                                    <br><br><br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-minus"></span>2.
+                                        Add New Element</a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <b>Add New Element</b> <br>
+                                    <input class="form-control" type="text" id="elementDesc" placeholder="Insert Element Name">
+                                    <br>
+
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default" onclick="addElement('button')">Add
+                                            Button</button>
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a onclick="addElement('button')">Add Button</a></li>
+                                            <li><a onclick="addElement('image')">Add Image</a></li>
+                                            <li><a onclick="addElement('input')">Add Input Area</a></li>
+                                            <li><a onclick="addElement('text')">Add Text Area</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <br><br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span
+                                            class="glyphicon glyphicon-plus"></span>
+                                        3. Export Screen</a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <button type="button" class="btn btn-default" onclick="viewCode()">Kod
+                                        Bloğunu Görüntüle</button>
+                                    <br><br>
+                                    <button type="button" class="btn btn-primary" id="downloadLink">Mockup
+                                        Sayfasını Dışa Aktar</button>
+                                    <br><br>
+                                    <textarea id="codeViewArea" style="width: 100%" rows="10"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
     </div>
 
-    <div id="controlPanel" style="float: left; padding: 25px">
-        <b>Artboard'u Düzenle</b> <br>
-        Ekran İsmi: <input type="text" id="screenName" value="sampleScreen"> <br>
-        Genişlik: <input type="text" id="width" value="400"> <br>
-        Yükseklik: <input type="text" id="height" placeholder="600" value="600"> <br>
-        Ekran Görüntüsü: <input type="file" id="screenImage"> <br>
-        <br>
-        <button onclick="updateScreen()">Ekranı Güncelle</button>
-        <br><br><br>
+    <!-- Modal -->
+    <div class="modal fade" id="editModal" role="dialog">
+        <div class="modal-dialog">
 
-        <b>Yeni Element Ekle</b> <br>
-        <input type="text" id="elementDesc" placeholder="Element Adını Gir"> <br>
-        <button onclick="addElement()">Ekle</button>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="itemName">Edit Item</h4>
+                </div>
+                <div class="modal-body">
+                    <label for="renameItem">Rename Item:</label><input type="text" id="renameItem" class="form-control"
+                        value="Sample Renamed Item">
+                    <br>
+                    <label for="kind">Change Kind (select one):</label>
+                    <select class="form-control" id="kind">
+                        <option kind="button">button</option>
+                        <option kind="image">image</option>
+                        <option kind="input">input</option>
+                    </select>
+                    <br>
+                    <label for="order">Change Kind (select one):</label>
+                    <select class="form-control" id="order">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
 
-        <br><br><br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="changeItemButton" onclick="changeItem()">Save</button>
 
-        <b>Ekranı Aktar</b> <br>
-        <button onclick="viewCode()">Kod Bloğunu Görüntüle</button>
-        <br>
-        <button id="downloadLink">Mockup Sayfasını Dışa Aktar</button>
-        <br>
-        <textarea id="codeViewArea" cols="50" rows="20"></textarea>
+                </div>
+            </div>
+
+        </div>
     </div>
 
+    <!-- Export html -->
     <script>
         var fileName = document.getElementById("screenName").value + ".html";
         $('#downloadLink').click(function () {
             exportHTML(fileName, "text/html");
+        });
+    </script>
+
+
+    <!-- Script for bootstrap toggle -->
+    <script>
+        $(document).ready(function () {
+            // Add minus icon for collapse element which is open by default
+            $(".collapse.in").each(function () {
+                $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass(
+                    "glyphicon-plus");
+            });
+
+            // Toggle plus minus icon on show hide of collapse element
+            $(".collapse").on('show.bs.collapse', function () {
+                $(this).parent().find(".glyphicon").removeClass("glyphicon-plus").addClass(
+                    "glyphicon-minus");
+            }).on('hide.bs.collapse', function () {
+                $(this).parent().find(".glyphicon").removeClass("glyphicon-minus").addClass(
+                    "glyphicon-plus");
+            });
+        });
+    </script>
+
+    <!-- Right Click Menu -->
+    <script>
+        $(function () {
+            var itemsDisabled = {};
+            $.contextMenu({
+                selector: '.draggable',
+                callback: function (key, options) {
+                    itemId = options.$trigger[0].id;
+                    rightClickAction(key, itemId);
+                },
+                items: {
+                    "edit": {
+                        name: "Edit"
+                    },
+                    "toPrev": {
+                        name: "Send to Previous -1",
+                        disabled: function (key, opt) {
+                            return !!itemsDisabled[key];
+                        }
+                    },
+                    "toNext": {
+                        name: "Send to Next +1"
+                    },
+                    "delete": {
+                        name: "Delete Item"
+                    }
+                }
+            });
+            itemsDisabled["toPrev"] = true;
         });
     </script>
 
