@@ -1,3 +1,7 @@
+# Moca
+
+//TODO: What's Moca?
+
 # What's this?
 
 This is my roadmap and to do list on this project.
@@ -10,10 +14,10 @@ This project, MocAcc, is my weekend project, that i need to use as a product man
     - [ ] how to use
 
 # UI and UX
-- [ ] Transition to Bootstrap UI
-- [ ] Editing Elements w/ Right Click
+- [X] Transition to Bootstrap UI
+- [X] Editing Elements w/ Right Click
 - [ ] Sample editable onboarding mockup
-- [ ] Classification of Setting as 3 steps
+- [X] Classification of Setting as 3 steps
 - [ ] Prepare Logo
 - [ ] Introduction Video
 - [ ] Wellcome page and contents
@@ -21,9 +25,9 @@ This project, MocAcc, is my weekend project, that i need to use as a product man
 - [ ] Phone view arond black rectangle
 
 # Functional
-- [ ] Changing img areas to semi-tranparent buttons and text areas
+- [X] Changing img areas to semi-tranparent buttons and text areas
 - [ ] Alt / Hint text input
-- [ ] Change screen reader order w/ right click
+- [X] Change screen reader order w/ right click
 - [ ] Json export
 - [ ] Json import
 - [ ] Caching
