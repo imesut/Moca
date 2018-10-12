@@ -1,5 +1,10 @@
 # Moca
 
+Moca is a mockup tool for designing accessibility experience for disabled people.
+
+You can import your screen images and mark UI elements visible at the screen.
+
+Then you can test your UI with visually impaired people.
 //TODO: What's Moca?
 
 # What's this?
