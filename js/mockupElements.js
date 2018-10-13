@@ -1,13 +1,17 @@
 var id = 1;
 var width = 400;
+var screenName = "sampleScreen";
 
 function updateScreen() {
     width = document.getElementById("width").value;
-    document.getElementById("holder").style.width = width + "px";
-    document.getElementById("holder").style.height = document.getElementById("height").value + "px";
-    console.log(document.getElementById("holder").style.width);
-    console.log(document.getElementById("holder").style.height);
-    updateScreenImage();
+    screenName = document.getElementById("screenName").value;
+    if (screenName == ""){
+        alert("Don't leave screen name blank.");
+    } else{
+        document.getElementById("holder").style.width = width + "px";
+        document.getElementById("holder").style.height = document.getElementById("height").value + "px";
+        updateScreenImage();
+    }   
 }
 
 function updateScreenImage() {
@@ -62,21 +66,31 @@ function addElement(item) {
     }
 }
 
-var upSideBlock = '<html>' +
-    '<head>' + '    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />' +
-    '<meta name="viewport" content="width=' + width + ', initial-scale=1">' +
-    '    <link rel="stylesheet" href="style.css" type="text/css">' +
-    '</head>' +
-    '<body style="margin:0">'
-
-var bottomSideBlock = '    </div>' + '</body>' + '</html>'
-
-function viewCode() {
-    document.getElementById("codeViewArea").value = upSideBlock + document.getElementById("holder").outerHTML + bottomSideBlock;
-}
-
 function exportHTML(filename, mimeType) {
-    var pageHtml = upSideBlock + document.getElementById("holder").outerHTML + bottomSideBlock;
+
+    var upSideBlock =
+        '<html>' +
+        '<head>' +
+        '<title>' + screenName + ' by Moca' + '</title>' +
+        '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />' +
+        //'<meta name="viewport" content="width=' + width + ', initial-scale=1 maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">' +
+        '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">' +
+        '<meta name="apple-mobile-web-app-capable" content="yes" />' + 
+        '<meta name="apple-touch-fullscreen" content="yes">' +
+        '<link rel="stylesheet" href="style.css" type="text/css">' +
+        '<link rel="apple-touch-icon" href="icon.png">' +
+        '<link rel="icon" href="favicon.ico" type="image/x-icon">' +
+        '</head>' +
+        '<body style="margin:0">';
+
+    var bottomSideBlock =
+        '</div>' +
+        '</body>' +
+        '</html>';
+
+    var midBlock = document.getElementById("holder").outerHTML;
+    midBlock = midBlock.replace(/<p.*p>*/g, "");
+    var pageHtml = upSideBlock + midBlock + bottomSideBlock;
     var link = document.createElement('a');
     mimeType = mimeType || 'text/plain';
     link.setAttribute('download', filename);

@@ -25,6 +25,8 @@ input {
     width: 250px;
 }
 
+html, body {margin: 0; padding: 0; overflow: hidden}
+
 .overlay {
     background-color: #000000;
     border-radius: 10px;
