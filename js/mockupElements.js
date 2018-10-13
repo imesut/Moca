@@ -34,8 +34,6 @@ function updateScreenImage() {
 
 function addElement(item) {
 
-    console.log(id);
-
     var elVal = document.getElementById('elementDesc').value;
 
     if (elVal == "") {
@@ -46,7 +44,7 @@ function addElement(item) {
         if (item == "button") {
             document.getElementById("holder").innerHTML =
                 document.getElementById("holder").innerHTML +
-                '<div id="drag-' + id.toString() + '" class="draggable">\n<button style="width: 100%; height: 100%">' +
+                '<div id="drag-' + id.toString() + '" class="draggable" name="' + elVal + '" kind="button">\n<button style="width: 100%; height: 100%">' +
                 elVal +
                 '</button>\n<p class="overlay">' + id.toString() + '</p>\n</div>\n';
 
@@ -54,12 +52,12 @@ function addElement(item) {
             if (item == "image") {
                 document.getElementById("holder").innerHTML =
                     document.getElementById("holder").innerHTML +
-                    '<div id="drag-' + id.toString() + '" class="draggable">\n\t<img height="100%" width="100%" alt="' + elVal + '">\n<p class="overlay">' + id.toString() + '</p>\n</div>\n';
+                    '<div id="drag-' + id.toString() + '" class="draggable" name="' + elVal + '" kind="input">\n\t<img height="100%" width="100%" alt="' + elVal + '">\n<p class="overlay">' + id.toString() + '</p>\n</div>\n';
             } else {
                 if (item == "input") {
                     document.getElementById("holder").innerHTML =
                         document.getElementById("holder").innerHTML +
-                        '<div id="drag-' + id.toString() + '" class="draggable">\n<input style="width: 100%; height: 100%" value="' + elVal + '>\n<p class="overlay">' + id.toString() + '</p>\n</div>\n';
+                        '<div id="drag-' + id.toString() + '" class="draggable" name="' + elVal + '"changeItem kind="image">\n<input style="width: 100%; height: 100%" value="' + elVal + '>\n<p class="overlay">' + id.toString() + '</p>\n</div>\n';
                 }
             }
         }

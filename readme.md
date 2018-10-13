@@ -39,9 +39,9 @@ This project, MocAcc, is my weekend project, that i need to use as a product man
 - [ ] Clearing Cache
 - [ ] Multiple artboards (collection)
 - [ ] Ratio Offering when mockup's uploaded
-- [ ] Full screen mode
-- [ ] Icon upload feature
-- [ ] PWA like appearence on mobile
+- [X] Full screen mode
+- [X] PWA like appearence on mobile
+- [ ] Resizable Screen Functionality
 
 # Other
 - [ ] Index Page Creation from collection

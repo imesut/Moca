@@ -92,7 +92,6 @@
                                             <li><a onclick="addElement('button')">Add Button</a></li>
                                             <li><a onclick="addElement('image')">Add Image</a></li>
                                             <li><a onclick="addElement('input')">Add Input Area</a></li>
-                                            <li><a onclick="addElement('text')">Add Text Area</a></li>
                                         </ul>
                                     </div>
 
@@ -134,22 +133,22 @@
                     <h4 class="modal-title" id="itemName">Edit Item</h4>
                 </div>
                 <div class="modal-body">
-                    <label for="renameItem">Rename Item:</label><input type="text" id="renameItem" class="form-control"
+                    <label for="renameItem">Rename Item</label><input type="text" id="renameItem" class="form-control"
                         value="Sample Renamed Item">
                     <br>
-                    <label for="kind">Change Kind (select one):</label>
+                    <label for="kind">Change Kind (select one)</label>
                     <select class="form-control" id="kind">
                         <option kind="button">button</option>
                         <option kind="image">image</option>
                         <option kind="input">input</option>
                     </select>
-                    <br>
+                    <!-- <br>
                     <label for="order">Change Kind (select one):</label>
                     <select class="form-control" id="order">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
-                    </select>
+                    </select> -->
 
                 </div>
                 <div class="modal-footer">
@@ -199,11 +198,12 @@
                 selector: '.draggable',
                 callback: function (key, options) {
                     itemId = options.$trigger[0].id;
+                    console.log(itemId);
                     rightClickAction(key, itemId);
                 },
                 items: {
                     "edit": {
-                        name: "Edit"
+                        name: "Edit Item"
                     },
                     "toPrev": {
                         name: "Send to Previous -1",

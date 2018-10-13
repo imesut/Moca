@@ -25,8 +25,8 @@ function rightClickAction(action, itemId) {
             $("#renameItem")[0].value = itemName;
             $('#itemName')[0].innerText = "Edit Item: " + itemName;
             $("option[kind='" + kind + "']").prop("selected", true);
-            $("#editModal").modal("show");
             $("#changeItemButton").attr("onclick", "changeItem('#" + item + "')");
+            $("#editModal").modal("show");
             break;
         case 2:
             $("#" + item).insertBefore("#" + prevItem); //Change order; current item decreased
@@ -50,13 +50,11 @@ function rightClickAction(action, itemId) {
 };
 
 function changeItem(itemId){
-    //kind
-    //name
     var name = $("#renameItem")[0].value;
     var kind = $("#kind")[0].value;
     $(itemId).attr("name", name);
     $(itemId).attr("kind", kind);
-    var innerhtm = '\n' + $("#drag-1 p")[0].outerHTML;
+    var innerhtm = '\n' + $(itemId + " p")[0].outerHTML;
     if (kind == "button"){
         innerhtm = '<button style="width: 100%; height: 100%">' + name + '</button>' + innerhtm;
     } else{
@@ -68,7 +66,7 @@ function changeItem(itemId){
             }
         }    
     }
-    $("#drag-1")[0].innerHTML = innerhtm;
+    $(itemId)[0].innerHTML = innerhtm;
     $("#editModal").modal("hide");
 
 }
