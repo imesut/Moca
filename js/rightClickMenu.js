@@ -18,8 +18,12 @@ function rightClickAction(action, itemId) {
     switch (actions[action]) {
         case 0: //delete
             $("#" + item).remove();
+            for (i = 0; i < $(".draggable").length; i++) { 
+                $(".draggable")[i].id = "drag-" + (i+1);
+                $("#drag-" + (i+1) + " p")[0].innerText = (i+1);
+            }
             break;
-        case 1:
+        case 1: // edit
             var kind = $("#" + item)[0].getAttribute("kind");
             var itemName = $("#" + item)[0].getAttribute("name");
             $("#renameItem")[0].value = itemName;
