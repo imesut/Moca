@@ -114,7 +114,19 @@
                             </div>
                             <div id="collapseThree" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <button type="button" class="btn btn-default" id="downloadLink">Export Mockup Page</button>
+                                    <div class="btn-group">
+                                            <button type="button" class="btn btn-default" onclick="exportPage(true)">Export Page with Auto Scale</button>
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false">
+                                                <span class="caret"></span>
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a onclick="exportPage(true)">Export Page with Auto Scale</a></li>
+                                                <li><a onclick="exportPage(false)">Export Page without Auto Scale</a></li>
+                                            </ul>
+                                        </div>
+
                                 </div>
                             </div>
                         </div>
@@ -168,10 +180,10 @@
 
     <!-- Export html -->
     <script>
-        $('#downloadLink').click(function () {
+        function exportPage(autoScale) {
             var fileName = document.getElementById("screenName").value + ".html";
-            exportHTML(fileName, "text/html");
-        });
+            exportHTML(fileName, autoScale, "text/html");
+        };
     </script>
 
 
