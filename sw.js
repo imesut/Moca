@@ -1,7 +1,7 @@
 var CACHE_NAME = 'static-cache';
 var urlsToCache = [
   '.',
-  'sampleScreen.html',
+  '/',
   'sw.js'
 ];
 self.addEventListener('install', function(event) {

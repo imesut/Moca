@@ -31,17 +31,17 @@ This project, MocAcc, is my weekend project, that i need to use as a product man
 
 # Functional
 - [X] Changing img areas to semi-tranparent buttons and text areas
-- [ ] Alt / Hint text input
+- [X] Alt / Hint text input
 - [X] Change screen reader order w/ right click
 - [ ] Json export
 - [ ] Json import
-- [ ] Caching
+- [X] Caching
 - [ ] Clearing Cache
 - [ ] Multiple artboards (collection)
 - [ ] Ratio Offering when mockup's uploaded
 - [X] Full screen mode
 - [X] PWA like appearence on mobile
-- [ ] Resizable Screen Functionality
+- [X] Resizable Screen Functionality
 
 # Other
 - [ ] Index Page Creation from collection
