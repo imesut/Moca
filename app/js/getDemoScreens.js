@@ -5,5 +5,6 @@ function demo() {
 
     if (demo_id == 1) {
         $("#mockupField").load("https://imesut.github.io/Moca/mockups/settings/settings_holder.html");
+        $("h1")[0].innerText = "Moca - iOS Settings Screen"
     }
 }
