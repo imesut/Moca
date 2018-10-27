@@ -1,6 +1,6 @@
-# Moca
+# Moca - Accessible Mockups
 
-Moca is a mockup tool for designing accessibility experience for disabled people.
+Moca is a mockup tool for designing accessibility experience for disabled people, works on browser, online and offline.
 
 You can import your screen images and mark UI elements visible at the screen.
 
@@ -20,13 +20,25 @@ Designing applications or any design properly accessible requires feedback from 
 
 # How it's working?
 
-// TODO
+ Mark elements at your screen;
+
+![brief 1](assets/slide/brief_1.png)
+
+Test and interview screens on iOS with [Voiceover](https://en.wikipedia.org/wiki/VoiceOver) or Android with [Talkback](https://en.wikipedia.org/wiki/Google_TalkBack), by opening exported screen at browser (mobile) or adding to home screen. 
+
+![brief 1](assets/slide/brief_2.png)
+
+See all steps at Slideshare presentation;
+
+[![Click to open slideshare slide](assets/slide/slideshare.png)](https://www.slideshare.net/mresyilmaz/moca-accessible-mockups)
+
+Slides are also available at [this repository, here.](https://github.com/imesut/Moca/tree/master/assets/slide)
 
 # How to Install?
 
 Just clone this repository to your computer and open the ```index.html``` file from app folder!
 
-# Contribute
+# Contribute to Moca
 
 I will be delighted to see contributions (pull requests) to Moca. Primarily looked for the contribution topics below; 
 
