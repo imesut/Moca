@@ -15,6 +15,7 @@
     <script src="js/index.js"></script>
     <script src="js/mockupElements.js"></script>
     <script src="js/rightClickMenu.js"></script>
+    <script src="js/getDemoScreens.js"></script>
 
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="vendor/css/jquery.contextMenu.min.css">
@@ -22,11 +23,12 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
-<body>
+<body onload="demo()">
 
     <div class="container">
         <div class="row">
-            <h1>Moca - Create Accessible Mockups</h1>
+            <h1 style="float: left">Moca - Create Accessible Mockups</h1>
+            <a href="index.html" class="btn btn-primary" style="float:right; margin-top: 20px">New Screen</a>
 
             <div id="onPageAlert" class="alert alert-warning alert-dismissible fade in" style="margin-bottom: 0; display:none">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -38,7 +40,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" id="mockupField">
                 <h2>Screen</h2>
                 <div id="holder" style="width: 400px; height: 500px; background:#000000;">
 
@@ -188,6 +190,7 @@
         function closeInfo(){
             $("#onPageInfo")[0].style.display = "none";
         }
+
         function exportPage(autoScale) {
             // This is removed for service worker compailability
             // var fileName = document.getElementById("screenName").value + ".html";
