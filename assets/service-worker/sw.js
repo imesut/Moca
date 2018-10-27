@@ -2,7 +2,7 @@ var CACHE_NAME = 'static-cache';
 var urlsToCache = [
   '.',
   '/',
-  'sw.js',
+  'https://imesut.github.io/Moca/js/sw.js',
   'index.html'
 ];
 self.addEventListener('install', function(event) {

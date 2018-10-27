@@ -27,11 +27,15 @@
     <div class="container">
         <div class="row">
             <h1>Moca - Create Accessible Mockups</h1>
-            
+
             <div id="onPageAlert" class="alert alert-warning alert-dismissible fade in" style="margin-bottom: 0; display:none">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    Alert
-                  </div>
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                Alert
+            </div>
+            <div id="onPageInfo" class="alert alert-info alert-dismissible fade in" style="margin-bottom: 0; display:none">
+                <a href="#" class="close" aria-label="close">&times;</a>
+                Info
+            </div>
         </div>
         <div class="row">
             <div class="col-md-6">
@@ -39,7 +43,7 @@
                 <div id="holder" style="width: 400px; height: 500px; background:#000000;">
 
                     <div id="drag-1" class="draggable" name="Geri" kind="button" style="width: 100px; height:100px;">
-                        <button style="width: 100%; height: 100%">Geri</button>
+                        <button style="width: 100%; height: 100%">Back</button>
                         <p class="overlay">1</p>
                     </div>
 
@@ -115,17 +119,18 @@
                             <div id="collapseThree" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <div class="btn-group">
-                                            <button type="button" class="btn btn-default" onclick="exportPage(true)">Export Page with Auto Scale</button>
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
-                                                <span class="caret"></span>
-                                                <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a onclick="exportPage(true)">Export Page with Auto Scale</a></li>
-                                                <li><a onclick="exportPage(false)">Export Page without Auto Scale</a></li>
-                                            </ul>
-                                        </div>
+                                        <button type="button" class="btn btn-default" onclick="exportPage(true)">Export
+                                            Page with Auto Scale</button>
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a onclick="exportPage(true)">Export Page with Auto Scale</a></li>
+                                            <li><a onclick="exportPage(false)">Export Page without Auto Scale</a></li>
+                                        </ul>
+                                    </div>
 
                                 </div>
                             </div>
@@ -180,12 +185,20 @@
 
     <!-- Export html -->
     <script>
+        function closeInfo(){
+            $("#onPageInfo")[0].style.display = "none";
+        }
         function exportPage(autoScale) {
-            var fileName = document.getElementById("screenName").value + ".html";
-            exportHTML(fileName, autoScale, "text/html");
+            // This is removed for service worker compailability
+            // var fileName = document.getElementById("screenName").value + ".html";
+            // exportHTML(fileName, autoScale, "text/html");
+            exportHTML("index", autoScale, "text/html");
+            $("#onPageInfo")[0].innerHTML = '<a onclick="closeInfo()" class="close" aria-label="close">×</a>' +
+                'Move exported html page into your server at <code>Moca/mockups/' + document.getElementById("screenName").value +
+                '/</code> directory';
+            $("#onPageInfo").fadeTo(1000, 500);
         };
     </script>
-
 
     <!-- Script for bootstrap toggle -->
     <script>

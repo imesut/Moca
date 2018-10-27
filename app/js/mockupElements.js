@@ -110,22 +110,20 @@ function exportHTML(filename, autoScale, mimeType) {
         '<head>' +
         '<title>' + screenName + ' by Moca' + '</title>' +
         '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />' +
-        //'<meta name="viewport" content="width=' + width + ', initial-scale=1 maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">' +
         '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">' +
         '<meta name="apple-mobile-web-app-capable" content="yes" />' +
         '<meta name="apple-touch-fullscreen" content="yes">' +
-        '<link rel="apple-touch-icon" href="icon.png">' +
-        '<link rel="manifest" href="manifest.json">' +
-        '<link rel="icon" href="favicon.ico" type="image/x-icon">' +
+        '<link rel="apple-touch-icon" href="../../assets/icons/mocaIcon192x192.png">' +
+        '<link rel="icon" href="../../assets/icons/favicon.ico" type="image/x-icon">' +
         '<style>.draggable {width: 100px;height: 100px;background-color: #ffff;opacity: .7;color: #000000;padding: 1px;-webkit-transform: translate(0px, 0px);transform: translate(0px, 0px);}</style>';
 
-    var closeUpSideBlock = '</head> <body style="margin:0">';
-    var closeUpSideBlockOnLoad = '</head> <body onload="resizeScreen()" style="margin:0">';
+    var closeUpSideBlock = '</head> <body style="margin:0; overscroll-behavior: contain;">';
+    var closeUpSideBlockOnLoad = '</head> <body onload="resizeScreen()" style="margin:0; overscroll-behavior: contain;">';
 
     var bottomSideBlock =
         '</div>' +
         '</body>' +
-        '<script>if ("serviceWorker" in navigator) {navigator.serviceWorker.register("sw.js").then(function(registration) {console.log("Registered:", registration);}).catch(function(error) {console.log("Registration failed: ", error);});}</script>' +
+        '<script>if ("serviceWorker" in navigator) {navigator.serviceWorker.register("../sw.js").then(function(registration) {console.log("Registered:", registration);}).catch(function(error) {console.log("Registration failed: ", error);});}</script>' +
         '</html>';
 
     var midBlock = document.getElementById("holder").outerHTML;
