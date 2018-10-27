@@ -30,13 +30,13 @@ Test and interview screens on iOS with [Voiceover](https://en.wikipedia.org/wiki
 
 See all steps at Slideshare presentation;
 
-[![Click to open slideshare slide](assets/slide/slideshare.png)](https://www.slideshare.net/mresyilmaz/moca-accessible-mockups)
+[![Click to open slideshare slide](assets/slide/slideshare.png)](https://www.slideshare.net/mresyilmaz/moca-accessible-mockups-120959699)
 
 Slides are also available at [this repository, here.](https://github.com/imesut/Moca/tree/master/assets/slide)
 
 # How to Install?
 
-Just clone this repository to your computer and open the ```index.html``` file from app folder!
+Just clone [this repository](https://github.com/imesut/Moca) to your computer and open the ```index.html``` file from app folder!
 
 # Contribute to Moca
 
